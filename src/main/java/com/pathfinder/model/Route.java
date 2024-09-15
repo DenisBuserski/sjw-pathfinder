@@ -1,6 +1,6 @@
 package com.pathfinder.model;
 
-import com.pathfinder.model.enums.UserLevel;
+import com.pathfinder.model.enums.Level;
 import jakarta.persistence.*;
 
 import java.util.HashSet;
@@ -18,7 +18,7 @@ public class Route {
     private String gpxCoordinates;
 
     @Enumerated(EnumType.STRING)
-    private UserLevel level;
+    private Level level;
 
     private String name;
 
@@ -31,8 +31,15 @@ public class Route {
     @OneToMany(targetEntity = Comment.class, mappedBy = "route", cascade = CascadeType.ALL)
     private Set<Comment> comments;
 
+    @OneToOne
+    private Picture header;
+
+    @ManyToMany
+    private Set<Category> categories;
+
     public Route() {
         this.comments = new HashSet<>();
+        this.categories = new HashSet<>();
     }
 
     public long getId() {
@@ -53,11 +60,11 @@ public class Route {
         return this;
     }
 
-    public UserLevel getLevel() {
+    public Level getLevel() {
         return level;
     }
 
-    public Route setLevel(UserLevel level) {
+    public Route setLevel(Level level) {
         this.level = level;
         return this;
     }
@@ -95,6 +102,24 @@ public class Route {
 
     public Route setComments(Set<Comment> comments) {
         this.comments = comments;
+        return this;
+    }
+
+    public Picture getHeader() {
+        return header;
+    }
+
+    public Route setHeader(Picture header) {
+        this.header = header;
+        return this;
+    }
+
+    public Set<Category> getCategories() {
+        return categories;
+    }
+
+    public Route setCategories(Set<Category> categories) {
+        this.categories = categories;
         return this;
     }
 }
