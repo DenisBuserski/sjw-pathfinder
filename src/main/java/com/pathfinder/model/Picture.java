@@ -17,7 +17,7 @@ public class Picture {
     @ManyToOne
     private User author;
 
-    @OneToOne(targetEntity = Route.class, mappedBy = "header")
+    @ManyToOne
     private Route route;
 
     public long getId() {

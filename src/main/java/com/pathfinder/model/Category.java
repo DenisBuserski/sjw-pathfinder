@@ -11,6 +11,7 @@ public class Category {
     private long id;
 
     @Column(nullable = false, unique = true)
+    @Enumerated(EnumType.STRING)
     private RouteCategory name;
 
     @Column(columnDefinition = "TEXT")
