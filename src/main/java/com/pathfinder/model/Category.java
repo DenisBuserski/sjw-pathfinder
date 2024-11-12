@@ -2,9 +2,13 @@ package com.pathfinder.model;
 
 import com.pathfinder.model.enums.RouteCategory;
 import jakarta.persistence.*;
+import lombok.Getter;
+import lombok.Setter;
 
 @Entity
 @Table(name = "categories")
+@Getter
+@Setter
 public class Category {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -20,30 +24,5 @@ public class Category {
     public Category() {
     }
 
-    public long getId() {
-        return id;
-    }
 
-    public Category setId(long id) {
-        this.id = id;
-        return this;
-    }
-
-    public RouteCategory getName() {
-        return name;
-    }
-
-    public Category setName(RouteCategory name) {
-        this.name = name;
-        return this;
-    }
-
-    public String getDescription() {
-        return description;
-    }
-
-    public Category setDescription(String description) {
-        this.description = description;
-        return this;
-    }
 }

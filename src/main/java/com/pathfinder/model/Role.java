@@ -2,9 +2,13 @@ package com.pathfinder.model;
 
 import com.pathfinder.model.enums.UserRoles;
 import jakarta.persistence.*;
+import lombok.Getter;
+import lombok.Setter;
 
 @Entity
 @Table(name = "roles")
+@Getter
+@Setter
 public class Role {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -17,21 +21,4 @@ public class Role {
     public Role() {
     }
 
-    public long getId() {
-        return id;
-    }
-
-    public Role setId(long id) {
-        this.id = id;
-        return this;
-    }
-
-    public UserRoles getRole() {
-        return role;
-    }
-
-    public Role setRole(UserRoles role) {
-        this.role = role;
-        return this;
-    }
 }
