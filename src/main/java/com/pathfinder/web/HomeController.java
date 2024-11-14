@@ -18,13 +18,12 @@ public class HomeController {
         this.routeService = routeService;
     }
 
-    @GetMapping("/home")
+    @GetMapping("/")
     public String home(Model model) {
         Route route = routeService.getMostCommented();
         log.info("Most commented route is: {}", route.getName());
 
         model.addAttribute("mostCommented", route);
         return "index";
-
     }
 }
