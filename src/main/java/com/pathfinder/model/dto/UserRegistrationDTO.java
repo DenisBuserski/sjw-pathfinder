@@ -34,4 +34,9 @@ public class UserRegistrationDTO {
     @Size(min = 5, max = 20)
     private String confirmPassword;
 
+    @Override
+    public String toString() {
+        return String.format("Username: %s | Fullname: %s | Email: %s | Age: %d", username, fullname, email, age);
+    }
+
 }

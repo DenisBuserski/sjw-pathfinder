@@ -358,6 +358,6 @@ body {
     background-color: #0833e3
 }
 
-small.bg-danger {
+.registration-form .invalid-feedback {
     color: black;
 }
